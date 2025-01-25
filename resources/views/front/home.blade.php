@@ -10,9 +10,10 @@
             <div id="carousel-images" class="absolute inset-0 flex transition-transform duration-700 ease-in-out">
                 @foreach($sliders as $slider)
                     <div
-                        class="min-w-full bg-cover bg-center bg-no-repeat"
+                        class="min-w-full bg-cover bg-center bg-no-repeat flex items-center justify-center"
                         style="background-image: url('{{ asset('storage/' . $slider->image) }}');"
-                        data-caption="{{ $slider->caption }}">
+                        data-caption="{{ $slider->caption }}"
+                        data-description="{{ $slider->description }}">
                     </div>
                 @endforeach
             </div>
@@ -20,9 +21,10 @@
             <!-- Overlay for better readability -->
             <div class="absolute inset-0 bg-gray-800 bg-opacity-50"></div>
 
-            <!-- Captions -->
-            <div class="absolute bottom-8 left-8 z-10 text-white">
-                <h2 id="carousel-caption" class="text-2xl font-bold"></h2>
+            <!-- Captions and Descriptions -->
+            <div class="absolute inset-0 flex flex-col justify-center items-center z-10 text-center text-white px-4">
+                <h2 id="carousel-caption" class="text-4xl font-bold mb-4"></h2>
+                <p id="carousel-description" class="text-lg"></p>
             </div>
 
             <!-- Navigation Arrows -->
@@ -40,14 +42,17 @@
                 @endforeach
             </div>
         </section>
+
         @push('body-scripts')
             <script>
                 // Fetching data dynamically from the HTML
                 const slides = document.querySelectorAll('#carousel-images > div');
                 const captions = Array.from(slides).map(slide => slide.getAttribute('data-caption'));
+                const descriptions = Array.from(slides).map(slide => slide.getAttribute('data-description'));
 
                 const carouselImages = document.getElementById('carousel-images');
                 const carouselCaption = document.getElementById('carousel-caption');
+                const carouselDescription = document.getElementById('carousel-description');
                 const indicators = document.querySelectorAll('[data-index]');
 
                 let currentIndex = 0;
@@ -58,8 +63,9 @@
                     // Update transform for the images
                     carouselImages.style.transform = `translateX(-${currentIndex * 100}%)`;
 
-                    // Update the caption
+                    // Update the caption and description
                     carouselCaption.textContent = captions[currentIndex] || 'No Caption';
+                    carouselDescription.textContent = descriptions[currentIndex] || 'No Description';
 
                     // Update indicators
                     indicators.forEach((indicator, index) => {
