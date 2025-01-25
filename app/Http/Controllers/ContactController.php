@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\SkillController;
+use App\Models\ContactController;
 use Illuminate\Http\Request;
 
-class SkillControllerController extends Controller
+class ContactController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class SkillControllerController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(SkillController $skillController)
+    public function show(ContactController $contactController)
     {
         //
     }
@@ -42,7 +42,7 @@ class SkillControllerController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(SkillController $skillController)
+    public function edit(ContactController $contactController)
     {
         //
     }
@@ -50,7 +50,7 @@ class SkillControllerController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, SkillController $skillController)
+    public function update(Request $request, ContactController $contactController)
     {
         //
     }
@@ -58,7 +58,7 @@ class SkillControllerController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(SkillController $skillController)
+    public function destroy(ContactController $contactController)
     {
         //
     }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\About;
 use App\Models\Slider;
 use Illuminate\Http\Request;
 
@@ -10,11 +11,13 @@ class HomeController extends Controller
     public function index()
     {
         $sliders = Slider::all();
-        return view('front.home', compact('sliders'));
+        $abouts = About::all();
+        return view('front.home', compact('sliders','abouts'));
     }
     public function about()
     {
-        return view('front.about');
+        $abouts = About::all();
+        return view('front.about', compact('abouts'));
     }
     public function experience()
     {

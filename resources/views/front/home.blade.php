@@ -98,24 +98,22 @@
 
         <!-- About Section -->
         <section id="about" class="py-16 container mx-auto p-2">
+            @foreach($abouts as $about)
             <div class="flex flex-col md:flex-row items-center space-y-8 md:space-y-0">
                 <div class="md:w-1/2 text-center md:text-left">
-                    <h2 class="text-4xl font-bold">About Me</h2>
+                    <h2 class="text-4xl font-bold">About {{ $about->title }}</h2>
                     <p class="mt-4 text-2xl">
-                        psum dolor sit amet, consectetur adipiscing elit. Proin euismod nulla ac efficitur placerat. Inet ligula ac augue vehicula luctus.
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin euismod nulla ac efficitur placerat. Inr placerat. Integer eget ligula ac augue vehicula luctus.
-                        psum dolor sit amet, consectetur c efficitur placerat. Integer eget ligula ac augue vehicula luctus.
-                        Lorem ipsum dolor sit amet, consectetur adipisod nulla ac efficitur placerat. Integer eget ligula ac augue vehicula luctus.
-                        Lorem ipsum dolor sit amet, consectetur adipisod nulla ac efficitur placerat. Integer eget ligula ac augue vehicula luctus.
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin euismod nulla ac efficitur placerat. Integer eget ligula ac augue vehicula luctus.
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin elacerat. Integer eget ligula ac augue vehicula luctus.
+                        {{ $about->short_description }}
+                        {{ $about->long_description }}
                     </p>
                 </div>
                 <div class="md:w-1/2">
-                    <img src="{{ asset('img/about.png') }}" alt="About Image" class="rounded-lg shadow-lg">
-                    {{--                <img src=" img/about.png" alt="About Image" class="rounded-lg shadow-lg">--}}
+                    <img src="{{ asset('storage/' . $about->image) }}" alt="About Image" class="rounded-lg shadow-lg">
+{{--                    <img src="{{ asset('img/about.png') }}" alt="About Image" class="rounded-lg shadow-lg">--}}
+                    {{--<img src=" img/about.png" alt="About Image" class="rounded-lg shadow-lg">--}}
                 </div>
             </div>
+            @endforeach
         </section>
 
         <!-- Experience Section -->

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\AboutController;
+use App\Models\ServiceController;
 use Illuminate\Http\Request;
 
-class AboutControllerController extends Controller
+class ServiceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class AboutControllerController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(AboutController $aboutController)
+    public function show(ServiceController $serviceController)
     {
         //
     }
@@ -42,7 +42,7 @@ class AboutControllerController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(AboutController $aboutController)
+    public function edit(ServiceController $serviceController)
     {
         //
     }
@@ -50,7 +50,7 @@ class AboutControllerController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, AboutController $aboutController)
+    public function update(Request $request, ServiceController $serviceController)
     {
         //
     }
@@ -58,7 +58,7 @@ class AboutControllerController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(AboutController $aboutController)
+    public function destroy(ServiceController $serviceController)
     {
         //
     }

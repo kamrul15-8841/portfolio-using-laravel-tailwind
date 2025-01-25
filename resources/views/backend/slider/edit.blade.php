@@ -47,8 +47,10 @@
             <div class="mb-4">
                 <label for="status" class="block text-gray-600 font-medium">Status</label>
                 <select name="status" id="status" class="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    <option value="1" {{ old('status', $slider->status) == '1' ? 'selected' : '' }}>Active</option>
-                    <option value="0" {{ old('status', $slider->status) == '0' ? 'selected' : '' }}>Inactive</option>
+{{--                    <option value="1" {{ old('status', $slider->status) == '1' ? 'selected' : '' }}>Active</option>--}}
+{{--                    <option value="0" {{ old('status', $slider->status) == '0' ? 'selected' : '' }}>Inactive</option>--}}
+                    <option value="1" {{ old('status', $slider->status) == 'active' ? 'selected' : '' }}>Active</option>
+                    <option value="0" {{ old('status', $slider->status) == '' ? 'selected' : '' }}>Inactive</option>
                 </select>
                 @error('status')
                 <span class="text-red-500 text-sm">{{ $message }}</span>

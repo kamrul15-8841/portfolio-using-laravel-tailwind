@@ -28,19 +28,19 @@
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6 mx-auto group-hover:text-white">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l9 4 9-4m0 0v12m0 0l-9 4-9-4"/>
                 </svg>
-                <span class="text-xs mt-2 block">Sliders</span>
+                <span class="text-xs mt-2 block">Slider</span>
             </a>
         </li>
 
         <!-- Products Link -->
         <li class="text-center group">
             <a href="
-{{--{{ route('products.index') }}--}}
+                {{ route('abouts.index') }}
                 " class="block py-3 px-2 rounded transition-all duration-300 hover:bg-purple-600 hover:scale-105 ease-in-out">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6 mx-auto group-hover:text-white">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 9l10-5v12l-10-5M9 9l-10 5v-12l10 5"/>
                 </svg>
-                <span class="text-xs mt-2 block">Products</span>
+                <span class="text-xs mt-2 block">About</span>
             </a>
         </li>
     </ul>
