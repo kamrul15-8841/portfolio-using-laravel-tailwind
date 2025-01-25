@@ -2,7 +2,9 @@
 <header class="bg-gray-900 bg-opacity-80 fixed w-full z-50 shadow-lg">
     <div class="container mx-auto px-3 py-6 flex justify-between items-center">
         <!-- Logo -->
-        <div class="text-2xl font-bold">Logo</div>
+        <div class="text-2xl font-bold">
+            <a href="{{ route('home') }}" class="hover:text-blue-400 text-xl">Logo</a>
+        </div>
 
         <!-- Navigation -->
         <nav class="flex space-x-6">

@@ -4,7 +4,7 @@
 
 @section('content')
     <!-- Projects Section -->
-    <section id="projects" class="py-16 container mx-auto">
+    <section id="projects" class="py-16 container mx-auto p-2">
         <h2 class="text-4xl font-bold text-center">Projects</h2>
         <div class="mt-8">
             <!-- Tab Navigation -->

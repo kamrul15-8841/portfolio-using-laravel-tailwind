@@ -3,7 +3,7 @@
 
 @section('content')
     <!-- Courses Section -->
-    <section id="courses" class="py-16">
+    <section id="courses" class="py-16 p-2">
         <div class="container mx-auto">
             <h2 class="text-4xl font-bold text-center">Courses</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">

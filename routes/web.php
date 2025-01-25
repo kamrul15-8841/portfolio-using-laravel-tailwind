@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\SliderControllerController;
 use Illuminate\Support\Facades\Route;
 
 /*

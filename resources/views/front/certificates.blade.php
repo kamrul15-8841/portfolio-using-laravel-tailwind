@@ -4,7 +4,7 @@
 
 @section('content')
     <!-- certificates Section -->
-    <section id="certificates" class="py-16 container mx-auto">
+    <section id="certificates" class="py-16 container mx-auto p-2">
         <h2 class="text-4xl font-bold text-center">Certificates</h2>
         <div class="mt-8">
             <!-- Tab Navigation -->

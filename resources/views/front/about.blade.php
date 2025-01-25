@@ -3,7 +3,7 @@
 
 @section('content')
     <!-- About Section -->
-    <section id="about" class="py-16 container mx-auto">
+    <section id="about" class="py-16 container mx-auto p-2">
         <div class="flex flex-col md:flex-row items-center space-y-8 md:space-y-0">
             <div class="md:w-1/2 text-center md:text-left">
                 <h2 class="text-4xl font-bold">About Me</h2>

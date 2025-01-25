@@ -4,7 +4,7 @@
 <!-- Main Content -->
 @section('content')
         <!-- Carousel -->
-        <section id="carousel" class="relative min-h-screen bg-gray-800 overflow-hidden">
+        <section id="carousel" class="relative min-h-screen bg-gray-800 overflow-hidden p-2">
             <!-- Carousel Wrapper -->
             <div id="carousel-images" class="absolute inset-0 flex transition-transform duration-700 ease-in-out">
                 <!-- Image 1 -->
@@ -54,7 +54,7 @@
         </section>
 
         <!-- About Section -->
-        <section id="about" class="py-16 container mx-auto">
+        <section id="about" class="py-16 container mx-auto p-2">
             <div class="flex flex-col md:flex-row items-center space-y-8 md:space-y-0">
                 <div class="md:w-1/2 text-center md:text-left">
                     <h2 class="text-4xl font-bold">About Me</h2>
@@ -76,7 +76,7 @@
         </section>
 
         <!-- Experience Section -->
-        <section id="experience" class="bg-gray-900 py-16">
+        <section id="experience" class="bg-gray-900 py-16 p-2">
             <div class="container mx-auto">
                 <h2 class="text-4xl font-bold text-center">Experience</h2>
                 <div class="mt-8 space-y-4">
@@ -95,7 +95,7 @@
         </section>
 
         <!-- Projects Section -->
-        <section id="projects" class="py-16 container mx-auto">
+        <section id="projects" class="py-16 container mx-auto p-2">
             <h2 class="text-4xl font-bold text-center">Projects</h2>
             <div class="mt-8">
                 <!-- Tab Navigation -->
@@ -145,7 +145,7 @@
 
 
         <!-- Skills Section -->
-        <section id="skills" class="bg-gray-900 py-16">
+        <section id="skills" class="bg-gray-900 py-16 p-2">
             <div class="container mx-auto">
                 <h2 class="text-4xl font-bold text-center">Skills</h2>
                 <div class="mt-8 space-y-4">
@@ -191,7 +191,7 @@
         </section>
 
         <!-- Services Section -->
-        <section id="services" class="py-16 container mx-auto">
+        <section id="services" class="py-16 container mx-auto p-2">
             <h2 class="text-4xl font-bold text-center">Services</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
                 <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
@@ -208,7 +208,7 @@
         </section>
 
         <!-- Courses Section -->
-        <section id="courses" class="bg-gray-900 py-16">
+        <section id="courses" class="bg-gray-900 py-16 p-2">
             <div class="container mx-auto">
                 <h2 class="text-4xl font-bold text-center">Courses</h2>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
@@ -227,7 +227,7 @@
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="py-16 container mx-auto">
+        <section id="contact" class="py-16 container mx-auto p-2">
             <h2 class="text-4xl font-bold text-center">Contact</h2>
             <form class="mt-8 space-y-4 max-w-lg mx-auto">
                 <input type="text" placeholder="Your Name" class="w-full p-4 bg-gray-800 rounded-lg">
