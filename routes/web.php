@@ -3,6 +3,7 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\SliderControllerController;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,7 +22,10 @@ use Illuminate\Support\Facades\Route;
 //});
 //BackEnd
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.home');
-
+Route::resource('sliders',SliderControllerController::class);
+Route::get('/linkstorage', function () {
+    Artisan::call('storage:link');
+});
 //FrontEnd
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [HomeController::class, 'about'])->name('about');

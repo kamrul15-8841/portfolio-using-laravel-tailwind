@@ -4,25 +4,17 @@
 <!-- Main Content -->
 @section('content')
         <!-- Carousel -->
+        <!-- Carousel -->
         <section id="carousel" class="relative min-h-screen bg-gray-800 overflow-hidden p-2">
             <!-- Carousel Wrapper -->
             <div id="carousel-images" class="absolute inset-0 flex transition-transform duration-700 ease-in-out">
-                <!-- Image 1 -->
-                <div
-                    class="min-w-full bg-cover bg-center bg-no-repeat"
-                    style="background-image: url('/img/portfolio/port10.png');">
-                    {{--                style="background-image: url({{ asset('/img/portfolio/port1.png) }});">--}}
-                </div>
-                <!-- Image 2 -->
-                <div
-                    class="min-w-full bg-cover bg-center bg-no-repeat"
-                    style="background-image: url('/img/portfolio/port2.png');">
-                </div>
-                <!-- Image 3 -->
-                <div
-                    class="min-w-full bg-cover bg-center bg-no-repeat"
-                    style="background-image: url('/img/portfolio/port3.png');">
-                </div>
+                @foreach($sliders as $slider)
+                    <div
+                        class="min-w-full bg-cover bg-center bg-no-repeat"
+                        style="background-image: url('{{ asset('storage/' . $slider->image) }}');"
+                        data-caption="{{ $slider->caption }}">
+                    </div>
+                @endforeach
             </div>
 
             <!-- Overlay for better readability -->
@@ -30,7 +22,7 @@
 
             <!-- Captions -->
             <div class="absolute bottom-8 left-8 z-10 text-white">
-                <h2 id="carousel-caption" class="text-2xl font-bold">Caption for Image 1</h2>
+                <h2 id="carousel-caption" class="text-2xl font-bold"></h2>
             </div>
 
             <!-- Navigation Arrows -->
@@ -41,17 +33,62 @@
 
             <!-- Indicators -->
             <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-20 flex space-x-2">
-                <div
-                    class="w-3 h-3 bg-blue-500 rounded-full"
-                    data-index="0"></div>
-                <div
-                    class="w-3 h-3 bg-gray-400 rounded-full"
-                    data-index="1"></div>
-                <div
-                    class="w-3 h-3 bg-gray-400 rounded-full"
-                    data-index="2"></div>
+                @foreach($sliders as $index => $slider)
+                    <div
+                        class="w-3 h-3 rounded-full {{ $index === 0 ? 'bg-blue-500' : 'bg-gray-400' }}"
+                        data-index="{{ $index }}"></div>
+                @endforeach
             </div>
         </section>
+        @push('body-scripts')
+            <script>
+                // Fetching data dynamically from the HTML
+                const slides = document.querySelectorAll('#carousel-images > div');
+                const captions = Array.from(slides).map(slide => slide.getAttribute('data-caption'));
+
+                const carouselImages = document.getElementById('carousel-images');
+                const carouselCaption = document.getElementById('carousel-caption');
+                const indicators = document.querySelectorAll('[data-index]');
+
+                let currentIndex = 0;
+                const totalImages = slides.length;
+
+                // Function to update the carousel
+                function updateCarousel() {
+                    // Update transform for the images
+                    carouselImages.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+                    // Update the caption
+                    carouselCaption.textContent = captions[currentIndex] || 'No Caption';
+
+                    // Update indicators
+                    indicators.forEach((indicator, index) => {
+                        indicator.classList.toggle('bg-blue-500', index === currentIndex);
+                        indicator.classList.toggle('bg-gray-400', index !== currentIndex);
+                    });
+                }
+
+                // Event listeners for navigation buttons
+                document.getElementById('prev-btn').addEventListener('click', () => {
+                    currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+                    updateCarousel();
+                });
+
+                document.getElementById('next-btn').addEventListener('click', () => {
+                    currentIndex = (currentIndex + 1) % totalImages;
+                    updateCarousel();
+                });
+
+                // Auto-slide every 5 seconds
+                setInterval(() => {
+                    currentIndex = (currentIndex + 1) % totalImages;
+                    updateCarousel();
+                }, 5000);
+
+                // Initialize carousel
+                updateCarousel();
+            </script>
+        @endpush
 
         <!-- About Section -->
         <section id="about" class="py-16 container mx-auto p-2">
@@ -239,61 +276,8 @@
 @endsection
 
 @push('body-scripts')
-    <script>
-        // JavaScript for Carousel Functionality
-        const images = [
-            '/img/portfolio/port10.png',
-            '/img/portfolio/port2.png',
-            '/img/portfolio/port3.png',
-        ];
-        const captions = [
-            'Caption for Image 1',
-            'Caption for Image 2',
-            'Caption for Image 3',
-        ];
-        const defaultImage = '/img/default.png';
 
-        let currentIndex = 0;
 
-        const carouselImages = document.getElementById('carousel-images');
-        const carouselCaption = document.getElementById('carousel-caption');
-        const indicators = document.querySelectorAll('[data-index]');
-        const totalImages = images.length;
-
-        // Function to update carousel
-        function updateCarousel() {
-            // Ensure default image fallback
-            const currentImage = images[currentIndex] || defaultImage;
-            carouselCaption.textContent = captions[currentIndex] || 'Default Caption';
-            carouselImages.style.transform = `translateX(-${currentIndex * 100}%)`;
-
-            // Update indicators
-            indicators.forEach((indicator, index) => {
-                indicator.classList.toggle('bg-blue-500', index === currentIndex);
-                indicator.classList.toggle('bg-gray-400', index !== currentIndex);
-            });
-        }
-
-        // Event listeners for navigation
-        document.getElementById('prev-btn').addEventListener('click', () => {
-            currentIndex = (currentIndex - 1 + totalImages) % totalImages;
-            updateCarousel();
-        });
-
-        document.getElementById('next-btn').addEventListener('click', () => {
-            currentIndex = (currentIndex + 1) % totalImages;
-            updateCarousel();
-        });
-
-        // Auto-slide every 5 seconds
-        setInterval(() => {
-            currentIndex = (currentIndex + 1) % totalImages;
-            updateCarousel();
-        }, 5000);
-
-        // Initialize carousel
-        updateCarousel();
-    </script>
     <script>
         // JavaScript for Tab Navigation
         document.addEventListener("DOMContentLoaded", () => {

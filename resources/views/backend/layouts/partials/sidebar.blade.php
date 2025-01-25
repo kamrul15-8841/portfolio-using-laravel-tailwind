@@ -23,12 +23,12 @@
         <!-- Categories Link -->
         <li class="text-center group">
             <a href="
-{{--{{ route('categories.index') }}--}}
+                {{ route('sliders.index') }}
                 " class="block py-3 px-2 rounded transition-all duration-300 hover:bg-indigo-600 hover:scale-105 ease-in-out">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6 mx-auto group-hover:text-white">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l9 4 9-4m0 0v12m0 0l-9 4-9-4"/>
                 </svg>
-                <span class="text-xs mt-2 block">Categories</span>
+                <span class="text-xs mt-2 block">Sliders</span>
             </a>
         </li>
 
