@@ -4,6 +4,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ExperienceController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
@@ -24,10 +25,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/linkstorage', function () {
     Artisan::call('storage:link');
 });
+
 //BackEnd
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.home');
 Route::resource('sliders',SliderController::class);
 Route::resource('abouts',AboutController::class);
+Route::resource('experiences',ExperienceController::class);
 
 //FrontEnd
 Route::get('/', [HomeController::class, 'index'])->name('home');

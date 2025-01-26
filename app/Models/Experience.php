@@ -18,6 +18,7 @@ class Experience extends Model
         'left_date',
         'expertise',
         'image',
-        'status'
+        'status',
+        'slug'
     ];
 }
