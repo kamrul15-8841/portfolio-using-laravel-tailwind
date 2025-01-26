@@ -122,12 +122,20 @@
             <div class="container mx-auto">
                 <h2 class="text-4xl font-bold text-center">Experience</h2>
                 @foreach($experiences as $experience)
-                <div class="mt-8 space-y-4">
-                    <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
-                        <h3 class="text-2xl font-bold">{{ $experience->job_title }}</h3>
-                        <p class="text-lg">{{ $experience->company_name }} | {{ $experience->joining_date }} - {{ $experience->left_date }}</p>
+                    <div class="mt-8 space-y-4">
+                        <div class="bg-gray-800 p-6 rounded-lg shadow-lg flex space-x-6">
+                            <div>
+                                <img src="{{ asset('storage/' . $experience->image) }}" alt="Experience Image" class="rounded-lg shadow-lg h-64 w-full">
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold">{{ $experience->job_title }}</h3>
+                                <p class="text-lg">{{ $experience->company_name }} ({{ $experience->company_address }})</p>
+                                <p class="text-lg">{{ $experience->joining_date }} - {{ $experience->left_date }}</p>
+                                <p class="text-lg">{{ $experience->expertise }}</p>
+                                <p class="text-lg">{{ $experience->job_description }}</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
                 @endforeach
 {{--                <div class="mt-8 space-y-4">--}}
 {{--                    <div class="bg-gray-800 p-6 rounded-lg shadow-lg">--}}
@@ -160,30 +168,27 @@
                 </div>
                 <!-- Projects -->
                 <div id="project-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
-                    <div class="project bg-gray-800 p-6 rounded-lg shadow-lg" data-category="web-design">
-                        <h3 class="text-2xl font-bold">Web Design Project 1</h3>
-                        <p class="mt-2">A description of Web Design Project 1.</p>
+                    @foreach($projects as $project)
+                    <div class="project bg-gray-800 p-6 rounded-lg shadow-lg" data-category="{{ $project->type }}">
+                        <img src="{{ asset('storage/' . $project->image) }}" alt="Project Image" class="rounded-lg shadow-lg">
+                        <h3 class="text-2xl font-bold">{{ $project->title }}</h3>
+                        <h6 class="text-lg font-bold">{{ $project->stack }}</h6>
+                        <p class="mt-2">{{ $project->short_description }}</p>
+                        <p class="mt-2">{{ $project->long_description }}</p>
                     </div>
-                    <div class="project bg-gray-800 p-6 rounded-lg shadow-lg" data-category="web-design">
-                        <h3 class="text-2xl font-bold">Web Design Project 2</h3>
-                        <p class="mt-2">A description of Web Design Project 2.</p>
-                    </div>
-                    <div class="project bg-gray-800 p-6 rounded-lg shadow-lg" data-category="web-development">
-                        <h3 class="text-2xl font-bold">Web Development Project 1</h3>
-                        <p class="mt-2">A description of Web Development Project 1.</p>
-                    </div>
-                    <div class="project bg-gray-800 p-6 rounded-lg shadow-lg" data-category="web-development">
-                        <h3 class="text-2xl font-bold">Web Development Project 2</h3>
-                        <p class="mt-2">A description of Web Development Project 2.</p>
-                    </div>
-                    <div class="project bg-gray-800 p-6 rounded-lg shadow-lg" data-category="mobile">
-                        <h3 class="text-2xl font-bold">Mobile Project 1</h3>
-                        <p class="mt-2">A description of Mobile Project 1.</p>
-                    </div>
-                    <div class="project bg-gray-800 p-6 rounded-lg shadow-lg" data-category="mobile">
-                        <h3 class="text-2xl font-bold">Mobile Project 2</h3>
-                        <p class="mt-2">A description of Mobile Project 2.</p>
-                    </div>
+                    @endforeach
+{{--                    <div class="project bg-gray-800 p-6 rounded-lg shadow-lg" data-category="web-design">--}}
+{{--                        <h3 class="text-2xl font-bold">Web Design Project 2</h3>--}}
+{{--                        <p class="mt-2">A description of Web Design Project 2.</p>--}}
+{{--                    </div>--}}
+{{--                    <div class="project bg-gray-800 p-6 rounded-lg shadow-lg" data-category="web-development">--}}
+{{--                        <h3 class="text-2xl font-bold">Web Development Project 1</h3>--}}
+{{--                        <p class="mt-2">A description of Web Development Project 1.</p>--}}
+{{--                    </div>--}}
+{{--                    <div class="project bg-gray-800 p-6 rounded-lg shadow-lg" data-category="mobile">--}}
+{{--                        <h3 class="text-2xl font-bold">Mobile Project 2</h3>--}}
+{{--                        <p class="mt-2">A description of Mobile Project 2.</p>--}}
+{{--                    </div>--}}
                 </div>
             </div>
         </section>

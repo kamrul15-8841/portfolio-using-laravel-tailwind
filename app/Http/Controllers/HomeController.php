@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\About;
 use App\Models\Experience;
+use App\Models\Project;
 use App\Models\Slider;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,8 @@ class HomeController extends Controller
         $sliders = Slider::all();
         $abouts = About::all();
         $experiences = Experience::all();
-        return view('front.home', compact('sliders','abouts','experiences'));
+        $projects = Project::all();
+        return view('front.home', compact('sliders','abouts','experiences','projects'));
     }
     public function about()
     {
@@ -32,7 +34,8 @@ class HomeController extends Controller
     }
     public function project()
     {
-        return view('front.projects');
+        $projects = Project::all();
+        return view('front.projects', compact('projects'));
     }
     public function service()
     {

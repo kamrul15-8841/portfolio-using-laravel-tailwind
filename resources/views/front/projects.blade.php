@@ -24,30 +24,15 @@
             </div>
             <!-- Projects -->
             <div id="project-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
-                <div class="project bg-gray-800 p-6 rounded-lg shadow-lg" data-category="web-design">
-                    <h3 class="text-2xl font-bold">Web Design Project 1</h3>
-                    <p class="mt-2">A description of Web Design Project 1.</p>
-                </div>
-                <div class="project bg-gray-800 p-6 rounded-lg shadow-lg" data-category="web-design">
-                    <h3 class="text-2xl font-bold">Web Design Project 2</h3>
-                    <p class="mt-2">A description of Web Design Project 2.</p>
-                </div>
-                <div class="project bg-gray-800 p-6 rounded-lg shadow-lg" data-category="web-development">
-                    <h3 class="text-2xl font-bold">Web Development Project 1</h3>
-                    <p class="mt-2">A description of Web Development Project 1.</p>
-                </div>
-                <div class="project bg-gray-800 p-6 rounded-lg shadow-lg" data-category="web-development">
-                    <h3 class="text-2xl font-bold">Web Development Project 2</h3>
-                    <p class="mt-2">A description of Web Development Project 2.</p>
-                </div>
-                <div class="project bg-gray-800 p-6 rounded-lg shadow-lg" data-category="mobile">
-                    <h3 class="text-2xl font-bold">Mobile Project 1</h3>
-                    <p class="mt-2">A description of Mobile Project 1.</p>
-                </div>
-                <div class="project bg-gray-800 p-6 rounded-lg shadow-lg" data-category="mobile">
-                    <h3 class="text-2xl font-bold">Mobile Project 2</h3>
-                    <p class="mt-2">A description of Mobile Project 2.</p>
-                </div>
+                @foreach($projects as $project)
+                    <div class="project bg-gray-800 p-6 rounded-lg shadow-lg" data-category="{{ $project->type }}">
+                        <img src="{{ asset('storage/' . $project->image) }}" alt="Project Image" class="rounded-lg shadow-lg">
+                        <h3 class="text-2xl font-bold">{{ $project->title }}</h3>
+                        <h6 class="text-lg font-bold">{{ $project->stack }}</h6>
+                        <p class="mt-2">{{ $project->short_description }}</p>
+                        <p class="mt-2">{{ $project->long_description }}</p>
+                    </div>
+                @endforeach
             </div>
         </div>
     </section>
