@@ -26,31 +26,31 @@ class HomeController extends Controller
         $experiences = Experience::all();
         return view('front.experience', compact('experiences'));
     }
-    public function skills()
+    public function skill()
     {
         return view('front.skills');
     }
-    public function projects()
+    public function project()
     {
         return view('front.projects');
     }
-    public function services()
+    public function service()
     {
         return view('front.services');
     }
-    public function courses()
+    public function course()
     {
         return view('front.courses');
     }
-    public function certificates()
+    public function certificate()
     {
         return view('front.certificates');
     }
-    public function contacts()
+    public function contact()
     {
         return view('front.contacts');
     }
-    public function others()
+    public function other()
     {
         return view('front.others');
     }

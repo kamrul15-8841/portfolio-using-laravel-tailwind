@@ -11,17 +11,17 @@
             <a href="{{ route('home') }}" class="hover:text-blue-400 text-xl">Home</a>
             <a href="{{ route('about') }}" class="hover:text-blue-400 text-xl">About</a>
             <a href="{{ route('experience') }}" class="hover:text-blue-400 text-xl">Experience</a>
-            <a href="{{ route('skills') }}" class="hover:text-blue-400 text-xl">Skills</a>
-            <a href="{{ route('projects') }}" class="hover:text-blue-400 text-xl">Projects</a>
-            <a href="{{ route('services') }}" class="hover:text-blue-400 text-xl">Services</a>
-            <a href="{{ route('courses') }}" class="hover:text-blue-400 text-xl">Courses</a>
-            <a href="{{ route('certificates') }}" class="hover:text-blue-400 text-xl">Certificates</a>
-            <a href="{{ route('others') }}" class="hover:text-blue-400 text-xl">others</a>
+            <a href="{{ route('skill') }}" class="hover:text-blue-400 text-xl">Skills</a>
+            <a href="{{ route('project') }}" class="hover:text-blue-400 text-xl">Projects</a>
+            <a href="{{ route('service') }}" class="hover:text-blue-400 text-xl">Services</a>
+            <a href="{{ route('course') }}" class="hover:text-blue-400 text-xl">Courses</a>
+            <a href="{{ route('certificate') }}" class="hover:text-blue-400 text-xl">Certificates</a>
+            <a href="{{ route('other') }}" class="hover:text-blue-400 text-xl">others</a>
         </nav>
 
         <!-- Contact and Login -->
         <div class="flex space-x-4">
-            <a href="{{ route('contacts') }}" class="hover:text-blue-400 text-xl">Contact</a>
+            <a href="{{ route('contact') }}" class="hover:text-blue-400 text-xl">Contact</a>
             <a href="{{ route('dashboard.home') }}" class="hover:text-blue-400 text-xl">Login</a>
         </div>
     </div>

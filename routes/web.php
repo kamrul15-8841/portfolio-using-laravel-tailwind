@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ExperienceController;
+use App\Http\Controllers\ProjectController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
@@ -31,15 +32,16 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard
 Route::resource('sliders',SliderController::class);
 Route::resource('abouts',AboutController::class);
 Route::resource('experiences',ExperienceController::class);
+Route::resource('projects',ProjectController::class);
 
 //FrontEnd
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/experience', [HomeController::class, 'experience'])->name('experience');
-Route::get('/skills', [HomeController::class, 'skills'])->name('skills');
-Route::get('/projects', [HomeController::class, 'projects'])->name('projects');
-Route::get('/services', [HomeController::class, 'services'])->name('services');
-Route::get('/courses', [HomeController::class, 'courses'])->name('courses');
-Route::get('/certificates', [HomeController::class, 'certificates'])->name('certificates');
-Route::get('/contacts', [HomeController::class, 'contacts'])->name('contacts');
-Route::get('/others', [HomeController::class, 'others'])->name('others');
+Route::get('/skill', [HomeController::class, 'skill'])->name('skill');
+Route::get('/project', [HomeController::class, 'project'])->name('project');
+Route::get('/service', [HomeController::class, 'service'])->name('service');
+Route::get('/course', [HomeController::class, 'course'])->name('course');
+Route::get('/certificate', [HomeController::class, 'certificate'])->name('certificate');
+Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
+Route::get('/other', [HomeController::class, 'other'])->name('other');

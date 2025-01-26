@@ -55,6 +55,20 @@
             </a>
         </li>
 
+        <!-- Projects Link -->
+        <li class="text-center group">
+            <a href=
+               "{{ route('projects.index') }}"
+               class="block py-3 px-2 rounded transition-all duration-300 hover:bg-green-600 hover:scale-105 ease-in-out">
+                <!-- Folder Icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6 mx-auto group-hover:text-white">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7a2 2 0 012-2h5l2 2h9a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V7z" />
+                </svg>
+                <span class="text-xs mt-2 block">Projects</span>
+            </a>
+        </li>
+
+
 
     </ul>
 </aside>

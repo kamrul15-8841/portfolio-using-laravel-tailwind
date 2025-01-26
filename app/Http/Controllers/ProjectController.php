@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ProjectController;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
@@ -12,7 +11,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        //
+        return view('backend.project.index');
     }
 
     /**
