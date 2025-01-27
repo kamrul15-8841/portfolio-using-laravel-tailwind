@@ -10,7 +10,8 @@ class ExperienceController extends Controller
 {
     public function index()
     {
-        $experiences = Experience::all();
+//        $experiences = Experience::all();
+        $experiences = Experience::paginate(6);
         return view('backend.experience.index', compact('experiences'));
     }
 

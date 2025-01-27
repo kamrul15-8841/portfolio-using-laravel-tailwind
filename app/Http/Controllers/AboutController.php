@@ -10,7 +10,8 @@ class AboutController extends Controller
 {
     public function index()
     {
-        $abouts = About::all();
+//        $abouts = About::all();
+        $abouts = About::paginate(6); // Load contacts
         return view('backend.about.index', compact('abouts'));
     }
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\About;
+use App\Models\Contact;
 use App\Models\Experience;
 use App\Models\Project;
 use App\Models\Slider;
@@ -52,6 +53,12 @@ class HomeController extends Controller
     public function contact()
     {
         return view('front.contacts');
+    }
+    public function addContact(Request $request)
+    {
+//        return $request->all();
+        Contact::createOrUpdateContact($request);
+        return redirect()->back()->with('success', 'Thanks for contact with me, We will reply you soon');
     }
     public function other()
     {

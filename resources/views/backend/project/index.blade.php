@@ -73,4 +73,10 @@
             </tbody>
         </table>
     </div>
+
+    <!-- Pagination -->
+    <div class="mt-6">
+        {{ $projects->links('vendor.pagination.tailwind') }}
+    </div>
+
 @endsection

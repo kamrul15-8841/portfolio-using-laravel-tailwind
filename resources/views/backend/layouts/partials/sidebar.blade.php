@@ -68,6 +68,20 @@
             </a>
         </li>
 
+        <!-- Contact Link -->
+        <li class="text-center group">
+            <a href="{{ route('contacts.index') }}"
+               class="block py-3 px-2 rounded transition-all duration-300 hover:bg-blue-600 hover:scale-105 ease-in-out">
+                <!-- Envelope Icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6 mx-auto group-hover:text-white">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 6h14a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2z" />
+                </svg>
+                <span class="text-xs mt-2 block">Contact</span>
+            </a>
+        </li>
+
+
 
 
     </ul>
