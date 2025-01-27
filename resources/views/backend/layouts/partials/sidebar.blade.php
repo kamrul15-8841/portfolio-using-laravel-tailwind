@@ -81,6 +81,19 @@
             </a>
         </li>
 
+        <!-- Service Link -->
+        <li class="text-center group">
+            <a href="{{ route('services.index') }}"
+               class="block py-3 px-2 rounded transition-all duration-300 hover:bg-yellow-500 hover:scale-105 ease-in-out">
+                <!-- Wrench and Screwdriver Icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6 mx-auto group-hover:text-white">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M8.25 15l-3.95-3.95a2.5 2.5 0 013.12-3.12L12 10.5m4.5-4.5L16 6m1.16-1.16l4 4m-7.32 7.32a2.5 2.5 0 11-3.12 3.12L9 19.5M15 12h4m-2 2v-4m4 6v6m-6-6h6" />
+                </svg>
+                <span class="text-xs mt-2 block">Service</span>
+            </a>
+        </li>
+
 
 
 

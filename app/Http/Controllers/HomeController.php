@@ -6,6 +6,7 @@ use App\Models\About;
 use App\Models\Contact;
 use App\Models\Experience;
 use App\Models\Project;
+use App\Models\Service;
 use App\Models\Slider;
 use Illuminate\Http\Request;
 
@@ -17,7 +18,8 @@ class HomeController extends Controller
         $abouts = About::all();
         $experiences = Experience::all();
         $projects = Project::all();
-        return view('front.home', compact('sliders','abouts','experiences','projects'));
+        $services = Service::all();
+        return view('front.home', compact('sliders','abouts','experiences','projects','services'));
     }
     public function about()
     {
@@ -40,7 +42,8 @@ class HomeController extends Controller
     }
     public function service()
     {
-        return view('front.services');
+        $services = Service::all();
+        return view('front.services', compact('services'));
     }
     public function course()
     {
