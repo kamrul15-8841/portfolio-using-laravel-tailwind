@@ -94,6 +94,19 @@
             </a>
         </li>
 
+        <!-- Course Link -->
+        <li class="text-center group">
+            <a href="{{ route('courses.index') }}"
+               class="block py-3 px-2 rounded transition-all duration-300 hover:bg-indigo-500 hover:scale-105 ease-in-out">
+                <!-- Graduation Cap Icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6 mx-auto group-hover:text-white">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M12 14l-9-5 9-5 9 5-9 5zm0 0v6m-4-3h8" />
+                </svg>
+                <span class="text-xs mt-2 block">Course</span>
+            </a>
+        </li>
+
 
 
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\About;
 use App\Models\Contact;
+use App\Models\Course;
 use App\Models\Experience;
 use App\Models\Project;
 use App\Models\Service;
@@ -19,7 +20,8 @@ class HomeController extends Controller
         $experiences = Experience::all();
         $projects = Project::all();
         $services = Service::all();
-        return view('front.home', compact('sliders','abouts','experiences','projects','services'));
+        $courses = Course::all();
+        return view('front.home', compact('sliders','abouts','experiences','projects','services','courses'));
     }
     public function about()
     {
@@ -47,7 +49,8 @@ class HomeController extends Controller
     }
     public function course()
     {
-        return view('front.courses');
+        $courses = Course::all();
+        return view('front.courses', compact('courses'));
     }
     public function certificate()
     {

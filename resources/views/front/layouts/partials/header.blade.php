@@ -15,7 +15,7 @@
             <a href="{{ route('project') }}" class="hover:text-blue-400 text-xl">Projects</a>
             <a href="{{ route('service') }}" class="hover:text-blue-400 text-xl">Services</a>
             <a href="{{ route('course') }}" class="hover:text-blue-400 text-xl">Courses</a>
-            <a href="{{ route('certificate') }}" class="hover:text-blue-400 text-xl">Certificates</a>
+{{--            <a href="{{ route('certificate') }}" class="hover:text-blue-400 text-xl">Certificates</a>--}}
             <a href="{{ route('other') }}" class="hover:text-blue-400 text-xl">others</a>
         </nav>
 

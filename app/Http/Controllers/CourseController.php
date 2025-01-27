@@ -2,64 +2,100 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\CourseController;
+use App\Models\Course;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class CourseController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+//        $courses = Course::all();
+        $courses = Course::paginate(3);
+        return view('backend.course.index', compact('courses'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        return view('backend.course.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+            'institute' => 'required|string|max:255',
+            'period' => 'required|string|max:255',
+            'expertise' => 'required|string|max:255',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'status' => 'required|boolean',
+//            'slug' => 'required|unique:courses,slug',
+        ]);
+        if ($request->hasFile('image')) {
+//            $imagePath = $request->file('image')->store('abouts', 'public');
+            $imagePath = $request->file('image') ? $request->file('image')->store('courses', 'public') : null;
+        }
+        $slug = Str::slug($request->title);
+        Course::create([
+            'title' => $request->title,
+            'description' => $request->description,
+            'institute' => $request->institute,
+            'period' => $request->period,
+            'expertise' => $request->expertise,
+            'image' => $imagePath ?? null,
+            'status' => $request->status,
+            'slug' => $slug,
+        ]);
+        return redirect()->route('courses.index')->with('success', 'course created successfully.');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(CourseController $courseController)
+    public function edit(course $course)
     {
-        //
+        return view('backend.course.edit', compact('course'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(CourseController $courseController)
+    public function update(Request $request, course $course)
     {
-        //
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+            'institute' => 'required|string|max:255',
+            'period' => 'required|string|max:255',
+            'expertise' => 'required|string|max:255',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'status' => 'required|boolean',
+//            'slug' => 'required|unique:courses,slug,' . $course->id,
+        ]);
+
+        $imagePath = $course->image;
+//        print_r($imagePath);
+        if ($request->file('image')) {
+//            Storage::disk('public')->delete($course->image);
+            $imagePath = $request->file('image')->store('courses', 'public');
+        }
+        $slug = Str::slug($request->title);
+        $course->update([
+            'title' => $request->title,
+            'description' => $request->description,
+            'institute' => $request->institute,
+            'period' => $request->period,
+            'expertise' => $request->expertise,
+            'image' => $imagePath ?? $course->image,
+            'status' => $request->status,
+            'slug' => $slug,
+        ]);
+        return redirect()->route('courses.index')->with('success', 'course updated successfully.');
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, CourseController $courseController)
+    public function destroy(course $course)
     {
-        //
-    }
+        if ($course->image) {
+            Storage::disk('public')->delete($course->image);
+        }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(CourseController $courseController)
-    {
-        //
+        $course->delete();
+        return redirect()->route('courses.index')->with('success', 'course deleted successfully.');
     }
 }
