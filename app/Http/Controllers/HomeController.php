@@ -8,6 +8,7 @@ use App\Models\Course;
 use App\Models\Experience;
 use App\Models\Project;
 use App\Models\Service;
+use App\Models\Skill;
 use App\Models\Slider;
 use Illuminate\Http\Request;
 
@@ -21,7 +22,9 @@ class HomeController extends Controller
         $projects = Project::all();
         $services = Service::all();
         $courses = Course::all();
-        return view('front.home', compact('sliders','abouts','experiences','projects','services','courses'));
+        $skills = Skill::all();
+        return view('front.home',
+            compact('sliders','abouts','experiences','projects','services','courses','skills'));
     }
     public function about()
     {
@@ -35,7 +38,8 @@ class HomeController extends Controller
     }
     public function skill()
     {
-        return view('front.skills');
+        $skills = Skill::all();
+        return view('front.skills',compact('skills'));
     }
     public function project()
     {

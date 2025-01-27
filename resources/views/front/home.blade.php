@@ -227,42 +227,44 @@
             <div class="container mx-auto">
                 <h2 class="text-4xl font-bold text-center">Skills</h2>
                 <div class="mt-8 space-y-4">
+                    @foreach($skills as $skill)
                     <div>
-                        <p class="text-lg font-bold">PHP</p>
+                        <p class="text-lg font-bold">{{ $skill->title }}</p>
                         <div class="bg-gray-800 h-4 rounded-lg">
-                            <div class="bg-blue-500 h-4 rounded-lg" style="width: 90%;"></div>
+                            <div class="bg-blue-500 h-4 rounded-lg" style="width: {{ $skill->progress }}%;"></div>
                         </div>
                     </div>
-                    <div>
-                        <p class="text-lg font-bold">Laravel</p>
-                        <div class="bg-gray-800 h-4 rounded-lg">
-                            <div class="bg-blue-500 h-4 rounded-lg" style="width: 85%;"></div>
-                        </div>
-                    </div>
-                    <div>
-                        <p class="text-lg font-bold">JavaScript</p>
-                        <div class="bg-gray-800 h-4 rounded-lg">
-                            <div class="bg-blue-500 h-4 rounded-lg" style="width: 70%;"></div>
-                        </div>
-                    </div>
-                    <div>
-                        <p class="text-lg font-bold">ReactJS</p>
-                        <div class="bg-gray-800 h-4 rounded-lg">
-                            <div class="bg-blue-500 h-4 rounded-lg" style="width: 60%;"></div>
-                        </div>
-                    </div>
-                    <div>
-                        <p class="text-lg font-bold">HTML</p>
-                        <div class="bg-gray-800 h-4 rounded-lg">
-                            <div class="bg-blue-500 h-4 rounded-lg" style="width: 90%;"></div>
-                        </div>
-                    </div>
-                    <div>
-                        <p class="text-lg font-bold">CSS</p>
-                        <div class="bg-gray-800 h-4 rounded-lg">
-                            <div class="bg-blue-500 h-4 rounded-lg" style="width: 90%;"></div>
-                        </div>
-                    </div>
+                    @endforeach
+{{--                    <div>--}}
+{{--                        <p class="text-lg font-bold">Laravel</p>--}}
+{{--                        <div class="bg-gray-800 h-4 rounded-lg">--}}
+{{--                            <div class="bg-blue-500 h-4 rounded-lg" style="width: 85%;"></div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <div>--}}
+{{--                        <p class="text-lg font-bold">JavaScript</p>--}}
+{{--                        <div class="bg-gray-800 h-4 rounded-lg">--}}
+{{--                            <div class="bg-blue-500 h-4 rounded-lg" style="width: 70%;"></div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <div>--}}
+{{--                        <p class="text-lg font-bold">ReactJS</p>--}}
+{{--                        <div class="bg-gray-800 h-4 rounded-lg">--}}
+{{--                            <div class="bg-blue-500 h-4 rounded-lg" style="width: 60%;"></div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <div>--}}
+{{--                        <p class="text-lg font-bold">HTML</p>--}}
+{{--                        <div class="bg-gray-800 h-4 rounded-lg">--}}
+{{--                            <div class="bg-blue-500 h-4 rounded-lg" style="width: 90%;"></div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <div>--}}
+{{--                        <p class="text-lg font-bold">CSS</p>--}}
+{{--                        <div class="bg-gray-800 h-4 rounded-lg">--}}
+{{--                            <div class="bg-blue-500 h-4 rounded-lg" style="width: 90%;"></div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
                     <!-- Add more skills -->
                 </div>
             </div>

@@ -9,6 +9,7 @@ use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\SkillController;
 
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
@@ -46,6 +47,7 @@ Route::resource('projects',ProjectController::class);
 Route::resource('contacts',ContactController::class);
 Route::resource('services',ServiceController::class);
 Route::resource('courses',CourseController::class);
+Route::resource('skills',SkillController::class);
 
 Route::get('/linkstorage', function () {
     Artisan::call('storage:link');
