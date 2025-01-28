@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
+use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\SliderController;
@@ -11,9 +14,6 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\SkillController;
 
-use Illuminate\Support\Facades\Artisan;
-use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,6 +24,10 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
 //FrontEnd
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -38,18 +42,33 @@ Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::post('/add-contact', [HomeController::class, 'addContact'])->name('add-contact');
 Route::get('/other', [HomeController::class, 'other'])->name('other');
 
-//BackEnd
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.home');
-Route::resource('sliders',SliderController::class);
-Route::resource('abouts',AboutController::class);
-Route::resource('experiences',ExperienceController::class);
-Route::resource('projects',ProjectController::class);
-Route::resource('contacts',ContactController::class);
-Route::resource('services',ServiceController::class);
-Route::resource('courses',CourseController::class);
-Route::resource('skills',SkillController::class);
+//Route::get('/dashboard', function () {
+//    return view('dashboard');
+//})->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/linkstorage', function () {
-    Artisan::call('storage:link');
+//Route::get('/dashboard', function () {
+//    return view('backend.home');
+//})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware(['auth', 'verified']);
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+
+    //BackEnd
+//    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+//    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.home');
+    Route::resource('sliders',SliderController::class);
+    Route::resource('abouts',AboutController::class);
+    Route::resource('experiences',ExperienceController::class);
+    Route::resource('projects',ProjectController::class);
+    Route::resource('contacts',ContactController::class);
+    Route::resource('services',ServiceController::class);
+    Route::resource('courses',CourseController::class);
+    Route::resource('skills',SkillController::class);
 });
 
+require __DIR__.'/auth.php';

@@ -19,13 +19,34 @@
             <a href="{{ route('service') }}" class="hover:text-purple-900 text-xl">Services</a>
             <a href="{{ route('course') }}" class="hover:text-purple-900 text-xl">Courses</a>
 {{--            <a href="{{ route('certificate') }}" class="hover:text-blue-400 text-xl">Certificates</a>--}}
+            <a href="{{ route('contact') }}" class="hover:text-blue-400 text-xl">Contact</a>
             <a href="{{ route('other') }}" class="hover:text-purple-900 text-xl">others</a>
         </nav>
 
         <!-- Contact and Login -->
-        <div class="flex space-x-4">
-            <a href="{{ route('contact') }}" class="hover:text-blue-400 text-xl">Contact</a>
-            <a href="{{ route('dashboard.home') }}" class="hover:text-blue-400 text-xl">Login</a>
+        <div class="flex space-x-6">
+            @if (Route::has('login'))
+                    @auth
+{{--                        <a href="{{ url('/dashboard') }}" class="hover:text-purple-900 text-xl">Dashboard</a>--}}
+                    <a href="{{ route('dashboard') }}" class="hover:text-purple-900 text-xl">Dashboard</a>
+{{--                        <a href="{{ route('logout') }}" class="hover:text-purple-900 text-xl">Logout</a>--}}
+                    <form method="POST" action="{{ route('logout') }}" class="hover:text-purple-900 text-xl">
+                        @csrf
+                        <a href="{{ route('dashboard') }}" class="hover:text-purple-900 text-xl" onclick="event.preventDefault(); this.closest('form').submit();">Logout</a>
+{{--                        <x-dropdown-link :href="route('logout')"--}}
+{{--                                         onclick="event.preventDefault();--}}
+{{--                                                this.closest('form').submit();">--}}
+{{--                            {{ __('Log Out') }}--}}
+{{--                        </x-dropdown-link>--}}
+                    </form>
+                    @else
+                        <a href="{{ route('login') }}" class="hover:text-purple-900 text-xl">Log in</a>
+
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}" class="hover:text-purple-900 text-xl">Register</a>
+                        @endif
+                    @endauth
+            @endif
         </div>
     </div>
 </header>
