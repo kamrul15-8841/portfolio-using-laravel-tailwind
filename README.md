@@ -1,6 +1,8 @@
 # portfolio-full-stack-website-with-laravel-tailwind
-![Screenshot (9)](https://github.com/user-attachments/assets/a994e32b-ab24-4643-9f89-27d011c00737)
+![Screenshot (6)](https://github.com/user-attachments/assets/7b55a4a3-6791-4124-bd1c-64b04ebc5ae0)
 ![Screenshot (8)](https://github.com/user-attachments/assets/10c3615f-1883-4df9-b696-f60af888608a)
+![Screenshot (9)](https://github.com/user-attachments/assets/a994e32b-ab24-4643-9f89-27d011c00737)
+![Screenshot (7)](https://github.com/user-attachments/assets/3065a79e-2f25-4ddc-954b-598fe0921ed5)
  ![Screenshot (26)](https://github.com/user-attachments/assets/87a5c041-cb73-4634-a0fb-183a55130d85)
 ![Screenshot (25)](https://github.com/user-attachments/assets/5bf6eda1-4634-4762-8ee3-f1b09d20b8a0)
 ![Screenshot (24)](https://github.com/user-attachments/assets/390c59c5-4da9-49ac-bb2c-23faed14de16)
@@ -17,7 +19,5 @@
 ![Screenshot (12)](https://github.com/user-attachments/assets/fe484b94-dc48-4cb9-86bd-0dd2101529f6)
 ![Screenshot (11)](https://github.com/user-attachments/assets/0646c0e0-77aa-4118-b922-81ac85ca8fae)
 ![Screenshot (10)](https://github.com/user-attachments/assets/ffe5bae0-08c3-4c22-ba7a-b4b3f836bc22)
-![Screenshot (7)](https://github.com/user-attachments/assets/3065a79e-2f25-4ddc-954b-598fe0921ed5)
-![Screenshot (6)](https://github.com/user-attachments/assets/7b55a4a3-6791-4124-bd1c-64b04ebc5ae0)
 ![Screenshot (28)](https://github.com/user-attachments/assets/9a29d865-6424-4398-96ca-093ac9bcb21d)
 ![Screenshot (27)](https://github.com/user-attachments/assets/c99d85ff-ccee-4148-80c8-7164963ec633)
