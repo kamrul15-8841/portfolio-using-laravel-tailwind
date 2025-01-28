@@ -8,7 +8,7 @@
         <div class="flex flex-col md:flex-row items-center space-y-8 md:space-y-0">
             @foreach($abouts as $about)
             <div class="md:w-7/10 text-center md:text-left">
-                <h2 class="text-4xl font-bold">About {{ $about->title }}</h2>
+                <h2 class="text-4xl font-bold">I Am {{ $about->title }}</h2>
                 <p class="mt-4 text-2xl">
                     {{ $about->short_description }}
                     {{ $about->long_description }}

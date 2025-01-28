@@ -16,44 +16,49 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $sliders = Slider::all();
-        $abouts = About::all();
-        $experiences = Experience::all();
-        $projects = Project::all();
-        $services = Service::all();
-        $courses = Course::all();
-        $skills = Skill::all();
+//        $sliders = Slider::all();
+        $sliders = Slider::where('status', 'active')->get();
+        $abouts = About::where('status', 'active')->get();
+        $experiences = Experience::where('status', 'active')->get();
+        $projects = Project::where('status', 'active')->get();
+        $services = Service::where('status', 'active')->get();
+        $courses = Course::where('status', 'active')->get();
+        $skills = Skill::where('status', 'active')->get();
         return view('front.home',
             compact('sliders','abouts','experiences','projects','services','courses','skills'));
     }
     public function about()
     {
-        $abouts = About::all();
+        $abouts = About::where('status', 'active')->get();
         return view('front.about', compact('abouts'));
     }
     public function experience()
     {
-        $experiences = Experience::all();
+        $experiences = Experience::where('status', 'active')->get();
+//            ->orderBy('name')
+//            ->take(3)
+//            ->get();
+//        $experiences = Experience::all();
         return view('front.experience', compact('experiences'));
     }
     public function skill()
     {
-        $skills = Skill::all();
+        $skills = Skill::where('status', 'active')->get();
         return view('front.skills',compact('skills'));
     }
     public function project()
     {
-        $projects = Project::all();
+        $projects = Project::where('status', 'active')->get();
         return view('front.projects', compact('projects'));
     }
     public function service()
     {
-        $services = Service::all();
+        $services = Service::where('status', 'active')->get();
         return view('front.services', compact('services'));
     }
     public function course()
     {
-        $courses = Course::all();
+        $courses = Course::where('status', 'active')->get();
         return view('front.courses', compact('courses'));
     }
     public function certificate()

@@ -19,7 +19,7 @@
             <a href="{{ route('service') }}" class="hover:text-purple-900 text-xl">Services</a>
             <a href="{{ route('course') }}" class="hover:text-purple-900 text-xl">Courses</a>
 {{--            <a href="{{ route('certificate') }}" class="hover:text-blue-400 text-xl">Certificates</a>--}}
-            <a href="{{ route('contact') }}" class="hover:text-blue-400 text-xl">Contact</a>
+            <a href="{{ route('contact') }}" class="hover:text-purple-900 text-xl">Contact</a>
             <a href="{{ route('other') }}" class="hover:text-purple-900 text-xl">others</a>
         </nav>
 

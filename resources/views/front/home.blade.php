@@ -104,7 +104,7 @@
             @foreach($abouts as $about)
             <div class="flex flex-col md:flex-row items-center space-y-8 md:space-y-0">
                 <div class="md:w-7/10 text-center md:text-left">
-                    <h2 class="text-4xl font-bold">About {{ $about->title }}</h2>
+                    <h2 class="text-4xl font-bold">I Am {{ $about->title }}</h2>
                     <p class="mt-4 text-2xl">
                         {{ $about->short_description }}
                         {{ $about->long_description }}
@@ -229,49 +229,26 @@
         @endpush
 
         <!-- Skills Section -->
-        <section id="skills" class="bg-gray-900 py-4 p-2">
+        <section id="skills" class="py-8 p-2 bg-gray-900 ">
             <div class="container mx-auto">
                 <h2 class="text-4xl font-bold text-center">Skills</h2>
-                <div class="mt-4 space-y-4 mb-4">
+                <div class="mt-4 space-y-4">
                     @foreach($skills as $skill)
-                    <div>
-                        <p class="text-lg font-bold">{{ $skill->title }}</p>
-                        <div class="bg-gray-800 h-4 rounded-lg">
-                            <div class="bg-blue-500 h-4 rounded-lg" style="width: {{ $skill->progress }}%;"></div>
+                        @php
+                            // Create an array of Tailwind color classes
+                            $colors = ['purple', 'green', 'red', 'orange', 'amber', 'lime'];
+                            // Get color based on loop index
+                            $color = $colors[$loop->index % count($colors)];
+                        @endphp
+                        <div>
+                            <p class="text-lg font-bold">{{ $skill->title }}</p>
+                            <div class="bg-gray-800 h-4 rounded-lg">
+                                <div class="bg-{{ $color }}-400 h-4 rounded-lg transition-all duration-500"
+                                     style="width: {{ $skill->progress }}%;">
+                                </div>
+                            </div>
                         </div>
-                    </div>
                     @endforeach
-{{--                    <div>--}}
-{{--                        <p class="text-lg font-bold">Laravel</p>--}}
-{{--                        <div class="bg-gray-800 h-4 rounded-lg">--}}
-{{--                            <div class="bg-blue-500 h-4 rounded-lg" style="width: 85%;"></div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                    <div>--}}
-{{--                        <p class="text-lg font-bold">JavaScript</p>--}}
-{{--                        <div class="bg-gray-800 h-4 rounded-lg">--}}
-{{--                            <div class="bg-blue-500 h-4 rounded-lg" style="width: 70%;"></div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                    <div>--}}
-{{--                        <p class="text-lg font-bold">ReactJS</p>--}}
-{{--                        <div class="bg-gray-800 h-4 rounded-lg">--}}
-{{--                            <div class="bg-blue-500 h-4 rounded-lg" style="width: 60%;"></div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                    <div>--}}
-{{--                        <p class="text-lg font-bold">HTML</p>--}}
-{{--                        <div class="bg-gray-800 h-4 rounded-lg">--}}
-{{--                            <div class="bg-blue-500 h-4 rounded-lg" style="width: 90%;"></div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                    <div>--}}
-{{--                        <p class="text-lg font-bold">CSS</p>--}}
-{{--                        <div class="bg-gray-800 h-4 rounded-lg">--}}
-{{--                            <div class="bg-blue-500 h-4 rounded-lg" style="width: 90%;"></div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-                    <!-- Add more skills -->
                 </div>
             </div>
         </section>
