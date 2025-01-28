@@ -3,11 +3,11 @@
 
 @section('content')
     <!-- Experience Section -->
-    <section id="experience" class=" py-16 p-2">
+    <section id="experience" class=" py-4 p-2">
         <div class="container mx-auto">
             <h2 class="text-4xl font-bold text-center">Courses</h2>
             @foreach($courses as $course)
-                <div class="mt-8 space-y-4">
+                <div class="mt-4 space-y-4">
                     <div class="bg-gray-800 p-6 rounded-lg shadow-lg flex space-x-6">
                         <div>
                             <img src="{{ asset('storage/' . $course->image) }}" alt="Experience Image" class="rounded-lg shadow-lg h-64 w-64">

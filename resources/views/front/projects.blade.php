@@ -4,9 +4,9 @@
 
 @section('content')
     <!-- Projects Section -->
-    <section id="projects" class="py-16 container mx-auto p-2">
+    <section id="projects" class="py-4 container mx-auto p-2">
         <h2 class="text-4xl font-bold text-center">Projects</h2>
-        <div class="mt-8">
+        <div class="mt-4">
             <!-- Tab Navigation -->
             <div class="flex justify-center space-x-4">
                 <button
@@ -23,7 +23,7 @@
                     data-category="mobile">Mobile</button>
             </div>
             <!-- Projects -->
-            <div id="project-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
+            <div id="project-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
                 @foreach($projects as $project)
                     <div class="project bg-gray-800 p-6 rounded-lg shadow-lg" data-category="{{ $project->type }}">
                         <img src="{{ asset('storage/' . $project->image) }}" alt="Project Image" class="rounded-lg shadow-lg">

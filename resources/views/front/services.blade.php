@@ -3,9 +3,9 @@
 
 @section('content')
     <!-- services Section -->
-    <section id="services" class="py-16 container mx-auto p-2">
+    <section id="services" class="py-4 container mx-auto p-2">
         <h2 class="text-4xl font-bold text-center">services</h2>
-        <div class="mt-8">
+        <div class="mt-4">
             <!-- Tab Navigation -->
             <div class="flex justify-center space-x-4">
                 <button
@@ -22,7 +22,7 @@
                     data-category="mobile">Mobile</button>
             </div>
             <!-- services -->
-            <div id="service-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
+            <div id="service-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
                 @foreach($services as $service)
                     <div class="service bg-gray-800 p-6 rounded-lg shadow-lg" data-category="{{ $service->type }}">
                         <img src="{{ asset('storage/' . $service->image) }}" alt="service Image" class="rounded-lg shadow-lg">

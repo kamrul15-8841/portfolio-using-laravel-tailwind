@@ -94,18 +94,23 @@
             </script>
         @endpush
 
+
+
+
+
         <!-- About Section -->
-        <section id="about" class="py-16 container mx-auto p-2">
+        <section id="about" class="py-8 container mx-auto p-2">
+            <h2 class="text-4xl font-bold text-center">About</h2>
             @foreach($abouts as $about)
             <div class="flex flex-col md:flex-row items-center space-y-8 md:space-y-0">
-                <div class="md:w-1/2 text-center md:text-left">
+                <div class="md:w-7/10 text-center md:text-left">
                     <h2 class="text-4xl font-bold">About {{ $about->title }}</h2>
                     <p class="mt-4 text-2xl">
                         {{ $about->short_description }}
                         {{ $about->long_description }}
                     </p>
                 </div>
-                <div class="md:w-1/2">
+                <div class="md:w-3/10">
                     <img src="{{ asset('storage/' . $about->image) }}" alt="About Image" class="rounded-lg shadow-lg">
 {{--                    <img src="{{ asset('img/about.png') }}" alt="About Image" class="rounded-lg shadow-lg">--}}
                     {{--<img src=" img/about.png" alt="About Image" class="rounded-lg shadow-lg">--}}
@@ -115,7 +120,7 @@
         </section>
 
         <!-- Experience Section -->
-        <section id="experience" class="bg-gray-900 py-16 p-2">
+        <section id="experience" class="bg-gray-900 py-8 p-2">
 
             <div class="container mx-auto">
                 <h2 class="text-4xl font-bold text-center">Experience</h2>
@@ -128,7 +133,8 @@
                             <div>
                                 <h3 class="text-2xl font-bold">{{ $experience->job_title }}</h3>
                                 <p class="text-lg">{{ $experience->company_name }} ({{ $experience->company_address }})</p>
-                                <p class="text-lg">{{ $experience->joining_date }} - {{ $experience->left_date }}</p>
+{{--                                <p class="text-lg">{{ $experience->joining_date }} - {{ $experience->left_date }}</p>--}}
+                                <p class="text-lg">{{ $experience->joining_date }} - Present</p>
                                 <p class="text-lg">{{ $experience->expertise }}</p>
                                 <p class="text-lg">{{ $experience->job_description }}</p>
                             </div>
@@ -146,9 +152,9 @@
         </section>
 
         <!-- Projects Section -->
-        <section id="projects" class="py-16 container mx-auto p-2">
+        <section id="projects" class="py-4 container mx-auto p-2">
             <h2 class="text-4xl font-bold text-center">Projects</h2>
-            <div class="mt-8">
+            <div class="mt-4">
                 <!-- Tab Navigation -->
                 <div class="flex justify-center space-x-4">
                     <button
@@ -165,7 +171,7 @@
                         data-category="mobile">Mobile</button>
                 </div>
                 <!-- Projects -->
-                <div id="project-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
+                <div id="project-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
                     @foreach($projects as $project)
                     <div class="project bg-gray-800 p-6 rounded-lg shadow-lg" data-category="{{ $project->type }}">
                         <img src="{{ asset('storage/' . $project->image) }}" alt="Project Image" class="rounded-lg shadow-lg">
@@ -223,10 +229,10 @@
         @endpush
 
         <!-- Skills Section -->
-        <section id="skills" class="bg-gray-900 py-16 p-2">
+        <section id="skills" class="bg-gray-900 py-4 p-2">
             <div class="container mx-auto">
                 <h2 class="text-4xl font-bold text-center">Skills</h2>
-                <div class="mt-8 space-y-4">
+                <div class="mt-4 space-y-4 mb-4">
                     @foreach($skills as $skill)
                     <div>
                         <p class="text-lg font-bold">{{ $skill->title }}</p>
@@ -270,9 +276,9 @@
             </div>
         </section>
 
-        <section id="services" class="py-16 container mx-auto p-2">
-            <h2 class="text-4xl font-bold text-center">services</h2>
-            <div class="mt-8">
+        <section id="services" class="py-4 container mx-auto p-2">
+            <h2 class="text-4xl font-bold text-center">Services</h2>
+            <div class="mt-4">
                 <!-- Tab Navigation -->
                 <div class="flex justify-center space-x-4">
                     <button
@@ -289,7 +295,7 @@
                         data-category="mobile">Mobile</button>
                 </div>
                 <!-- services -->
-                <div id="service-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
+                <div id="service-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
                     @foreach($services as $service)
                         <div class="service bg-gray-800 p-6 rounded-lg shadow-lg" data-category="{{ $service->type }}">
                             <img src="{{ asset('storage/' . $service->image) }}" alt="service Image" class="rounded-lg shadow-lg">
@@ -334,11 +340,11 @@
         @endpush
 
         <!-- Course Section -->
-        <section id="experience" class=" py-16 p-2">
+        <section id="experience" class="py-4 p-2">
             <div class="container mx-auto">
                 <h2 class="text-4xl font-bold text-center">Courses</h2>
                 @foreach($courses as $course)
-                    <div class="mt-8 space-y-4">
+                    <div class="mt-4 space-y-4">
                         <div class="bg-gray-800 p-6 rounded-lg shadow-lg flex space-x-6">
                             <div>
                                 <img src="{{ asset('storage/' . $course->image) }}" alt="Experience Image" class="rounded-lg shadow-lg h-64 w-64">
@@ -356,14 +362,14 @@
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="py-16 container mx-auto p-2">
+        <section id="contact" class="py-4 container mx-auto p-2">
             <h2 class="text-4xl font-bold text-center">Contact</h2>
             @if (session('success'))
                 <div class="bg-green-100 text-green-700 p-4 rounded mb-4 text-center">
                     {{ session('success') }}
                 </div>
             @endif
-            <form action=" {{ route('add-contact') }}" method="POST" class="mt-8 space-y-4 max-w-lg mx-auto">
+            <form action=" {{ route('add-contact') }}" method="POST" class="mt-4 space-y-4 max-w-lg mx-auto">
                 @csrf
                 <input name="name" type="text" placeholder="Your Name" class="w-full p-4 bg-gray-800 rounded-lg">
                 <input name="email" type="email" placeholder="Your Email" class="w-full p-4 bg-gray-800 rounded-lg">
