@@ -95,110 +95,114 @@
         @endpush
 
 
-
-
-
         <!-- About Section -->
-        <section id="about" class="py-8 container mx-auto p-2">
-            <h2 class="text-4xl font-bold text-center">About</h2>
-            @foreach($abouts as $about)
-            <div class="flex flex-col md:flex-row items-center space-y-8 md:space-y-0">
-                <div class="md:w-7/10 text-center md:text-left">
-                    <h2 class="text-4xl font-bold">I Am {{ $about->title }}</h2>
-                    <p class="mt-4 text-2xl">
-                        {{ $about->short_description }}
-                        {{ $about->long_description }}
-                    </p>
-                </div>
-                <div class="md:w-3/10">
-                    <img src="{{ asset('storage/' . $about->image) }}" alt="About Image" class="rounded-lg shadow-lg">
-{{--                    <img src="{{ asset('img/about.png') }}" alt="About Image" class="rounded-lg shadow-lg">--}}
-                    {{--<img src=" img/about.png" alt="About Image" class="rounded-lg shadow-lg">--}}
-                </div>
-            </div>
-            @endforeach
+        <section id="about" class="py-4">
+           <div class="mx-auto p-4 rounded-lg shadow-xl">
+               <h2 class="text-4xl font-bold text-center">About</h2>
+               @foreach($abouts as $about)
+                   <div class="flex flex-col md:flex-row items-center space-y-8 md:space-y-0">
+                       <div class="md:w-7/10 text-center md:text-left">
+                           <h2 class="text-4xl font-bold">I Am {{ $about->title }}</h2>
+                           <p class="mt-4 text-2xl">
+                               {{ $about->short_description }}
+                               {{ $about->long_description }}
+                           </p>
+                       </div>
+                       <div class="md:w-3/10">
+                           <img src="{{ asset('storage/' . $about->image) }}" alt="About Image" class="rounded-lg shadow-lg">
+                           {{--                    <img src="{{ asset('img/about.png') }}" alt="About Image" class="rounded-lg shadow-lg">--}}
+                           {{--<img src=" img/about.png" alt="About Image" class="rounded-lg shadow-lg">--}}
+                       </div>
+                   </div>
+               @endforeach
+           </div>
         </section>
 
         <!-- Experience Section -->
-        <section id="experience" class="bg-gray-900 py-8 p-2">
+        <section id="experience" class="py-4">
+            <div class="mx-auto px-2">
+                <h2 class="text-4xl font-bold text-center mb-8">Experience</h2>
+                <div class="space-y-6">
+                    @foreach($experiences as $experience)
+                        <div class="bg-gray-800 rounded-lg shadow-xl p-6 transition-transform duration-300 hover:scale-102">
+                            <!-- Image and Details Row -->
+                            <div class="flex flex-col md:flex-row gap-6 mb-4">
+                                <!-- Image Section -->
+                                <div class="md:w-1/4">
+                                    <img src="{{ asset('storage/' . $experience->image) }}" alt="Experience Image"
+                                         class="rounded-lg w-full h-48 object-cover shadow-md">
+                                </div>
 
-            <div class="container mx-auto">
-                <h2 class="text-4xl font-bold text-center">Experience</h2>
-                @foreach($experiences as $experience)
-                    <div class="mt-8 space-y-4">
-                        <div class="bg-gray-800 p-6 rounded-lg shadow-lg flex space-x-6">
-                            <div>
-                                <img src="{{ asset('storage/' . $experience->image) }}" alt="Experience Image" class="rounded-lg shadow-lg h-64 w-full">
+                                <!-- Details Section -->
+                                <div class="md:w-3/4 space-y-2">
+                                    <h3 class="text-2xl font-bold text-indigo-400">{{ $experience->job_title }}</h3>
+                                    <p class="text-lg font-semibold">{{ $experience->company_name }}</p>
+                                    <p class="text-gray-400">{{ $experience->company_address }}</p>
+                                    <div class="flex flex-wrap gap-4 text-sm">
+                                        <p class="bg-gray-700 px-3 py-1 rounded-full">
+                                            📅 {{ $experience->joining_date }} - {{ $experience->left_date }}
+                                        </p>
+                                        <p class="bg-gray-700 px-3 py-1 rounded-full">
+                                            🛠️ {{ $experience->expertise }}
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
-                            <div>
-                                <h3 class="text-2xl font-bold">{{ $experience->job_title }}</h3>
-                                <p class="text-lg">{{ $experience->company_name }} ({{ $experience->company_address }})</p>
-{{--                                <p class="text-lg">{{ $experience->joining_date }} - {{ $experience->left_date }}</p>--}}
-                                <p class="text-lg">{{ $experience->joining_date }} - Present</p>
-                                <p class="text-lg">{{ $experience->expertise }}</p>
-                                <p class="text-lg">{{ $experience->job_description }}</p>
+
+                            <!-- Job Description Full Width -->
+                            <div class="border-t border-gray-700 pt-4">
+                                <p class="text-gray-300 leading-relaxed">
+                                    {{ $experience->job_description }}
+                                </p>
                             </div>
                         </div>
-                    </div>
-                @endforeach
-{{--                <div class="mt-8 space-y-4">--}}
-{{--                    <div class="bg-gray-800 p-6 rounded-lg shadow-lg">--}}
-{{--                        <h3 class="text-2xl font-bold">Quality Assurance Engineer</h3>--}}
-{{--                        <p class="text-lg">InsideMaps Bangladesh | 08 September 2022 - 05 June 2023</p>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
+                    @endforeach
+                </div>
             </div>
-
         </section>
 
         <!-- Projects Section -->
-        <section id="projects" class="py-4 container mx-auto p-2">
+        <section id="projects" class="py-4 mx-auto p-2">
             <h2 class="text-4xl font-bold text-center">Projects</h2>
             <div class="mt-4">
                 <!-- Tab Navigation -->
-                <div class="flex justify-center space-x-4">
+                <div class="flex justify-center space-x-4 flex-wrap">
                     <button
-                        class="tab-btn bg-blue-500 text-white py-2 px-4 rounded-lg"
+                        class="tab-btn bg-blue-500 text-white py-2 px-4 rounded-lg mb-2"
                         data-category="all">All</button>
-                    <button
-                        class="tab-btn bg-gray-800 text-white py-2 px-4 rounded-lg"
-                        data-category="web-design">Web Design</button>
-                    <button
-                        class="tab-btn bg-gray-800 text-white py-2 px-4 rounded-lg"
-                        data-category="web-development">Web Development</button>
-                    <button
-                        class="tab-btn bg-gray-800 text-white py-2 px-4 rounded-lg"
-                        data-category="mobile">Mobile</button>
+                    @foreach($projects->pluck('type')->unique() as $type)
+                        <button
+                            class="tab-btn bg-gray-800 text-white py-2 px-4 rounded-lg mb-2"
+                            data-category="{{ Str::slug($type) }}">
+                            {{ $type }}
+                        </button>
+                    @endforeach
                 </div>
                 <!-- Projects -->
                 <div id="project-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
                     @foreach($projects as $project)
-                    <div class="project bg-gray-800 p-6 rounded-lg shadow-lg" data-category="{{ $project->type }}">
-                        <img src="{{ asset('storage/' . $project->image) }}" alt="Project Image" class="rounded-lg shadow-lg">
-                        <h3 class="text-2xl font-bold">{{ $project->title }}</h3>
-                        <h6 class="text-lg font-bold">{{ $project->stack }}</h6>
-                        <p class="mt-2">{{ $project->short_description }}</p>
-                        <p class="mt-2">{{ $project->long_description }}</p>
-                    </div>
+                        <div class="project bg-gray-800 p-6 rounded-lg shadow-lg"
+                             data-category="{{ Str::slug($project->type) }}">
+                            <img src="{{ asset('storage/' . $project->image) }}"
+                                 alt="Project Image"
+                                 class="rounded-lg shadow-lg w-full h-48 object-cover">
+                            <h3 class="text-2xl font-bold mt-4">{{ $project->title }}</h3>
+                            <div class="flex flex-wrap gap-2 my-2">
+                                @foreach(explode(',', $project->stack) as $tech)
+                                    <span class="bg-gray-700 px-2 py-1 rounded text-sm">
+                                    {{ trim($tech) }}
+                                </span>
+                                @endforeach
+                            </div>
+                            <p class="mt-2 text-gray-300">{{ $project->short_description }}</p>
+                            <p class="mt-2 text-gray-400 text-sm">{{ $project->long_description }}</p>
+                        </div>
                     @endforeach
-{{--                    <div class="project bg-gray-800 p-6 rounded-lg shadow-lg" data-category="web-design">--}}
-{{--                        <h3 class="text-2xl font-bold">Web Design Project 2</h3>--}}
-{{--                        <p class="mt-2">A description of Web Design Project 2.</p>--}}
-{{--                    </div>--}}
-{{--                    <div class="project bg-gray-800 p-6 rounded-lg shadow-lg" data-category="web-development">--}}
-{{--                        <h3 class="text-2xl font-bold">Web Development Project 1</h3>--}}
-{{--                        <p class="mt-2">A description of Web Development Project 1.</p>--}}
-{{--                    </div>--}}
-{{--                    <div class="project bg-gray-800 p-6 rounded-lg shadow-lg" data-category="mobile">--}}
-{{--                        <h3 class="text-2xl font-bold">Mobile Project 2</h3>--}}
-{{--                        <p class="mt-2">A description of Mobile Project 2.</p>--}}
-{{--                    </div>--}}
                 </div>
             </div>
         </section>
         @push('body-scripts')
             <script>
-                // JavaScript for Tab Navigation
                 document.addEventListener("DOMContentLoaded", () => {
                     const tabs = document.querySelectorAll(".tab-btn");
                     const projects = document.querySelectorAll(".project");
@@ -206,17 +210,21 @@
                     tabs.forEach((tab) => {
                         tab.addEventListener("click", () => {
                             // Remove active state from all tabs
-                            tabs.forEach((t) => t.classList.remove("bg-blue-500", "text-white"));
-                            tabs.forEach((t) => t.classList.add("bg-gray-800"));
+                            tabs.forEach((t) => {
+                                t.classList.remove("bg-blue-500", "text-white");
+                                t.classList.add("bg-gray-800");
+                            });
 
-                            // Add active state to the clicked tab
+                            // Add active state to clicked tab
                             tab.classList.add("bg-blue-500", "text-white");
+                            tab.classList.remove("bg-gray-800");
 
-                            const category = tab.getAttribute("data-category");
+                            const category = tab.dataset.category;
 
-                            // Show or hide projects based on the selected category
+                            // Filter projects
                             projects.forEach((project) => {
-                                if (category === "all" || project.getAttribute("data-category") === category) {
+                                const projectCategory = project.dataset.category;
+                                if (category === "all" || projectCategory === category) {
                                     project.classList.remove("hidden");
                                 } else {
                                     project.classList.add("hidden");
@@ -229,8 +237,8 @@
         @endpush
 
         <!-- Skills Section -->
-        <section id="skills" class="py-8 p-2 bg-gray-900 ">
-            <div class="container mx-auto">
+        <section id="skills" class="py-4 mx-auto p-2 rounded-lg shadow-2xl">
+            <div class=" mx-auto">
                 <h2 class="text-4xl font-bold text-center">Skills</h2>
                 <div class="mt-4 space-y-4">
                     @foreach($skills as $skill)
@@ -253,7 +261,7 @@
             </div>
         </section>
 
-        <section id="services" class="py-4 container mx-auto p-2">
+        <section id="services" class="py-4 mx-auto p-2">
             <h2 class="text-4xl font-bold text-center">Services</h2>
             <div class="mt-4">
                 <!-- Tab Navigation -->
@@ -318,7 +326,7 @@
 
         <!-- Course Section -->
         <section id="experience" class="py-4 p-2">
-            <div class="container mx-auto">
+            <div class="mx-auto">
                 <h2 class="text-4xl font-bold text-center">Courses</h2>
                 @foreach($courses as $course)
                     <div class="mt-4 space-y-4">
@@ -339,7 +347,7 @@
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="py-4 container mx-auto p-2">
+        <section id="contact" class="py-4 mx-auto p-2">
             <h2 class="text-4xl font-bold text-center">Contact</h2>
             @if (session('success'))
                 <div class="bg-green-100 text-green-700 p-4 rounded mb-4 text-center">

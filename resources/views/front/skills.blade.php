@@ -3,7 +3,7 @@
 
 @section('content')
     <!-- Skills Section -->
-    <section id="skills" class="py-4 p-2">
+    <section id="skills" class="py-4 p-2 container mx-auto rounded-lg shadow-2xl">
         <div class="container mx-auto">
             <h2 class="text-4xl font-bold text-center">Skills</h2>
             <div class="mt-4 space-y-4">

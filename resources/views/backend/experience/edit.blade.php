@@ -1,6 +1,6 @@
 @extends('backend.layouts.app')
 
-@section('title', 'Edit experience')
+@section('title', 'Edit Experience')
 
 @section('content')
     <div class="w-4xl mx-auto bg-white p-8 rounded-lg shadow-md">

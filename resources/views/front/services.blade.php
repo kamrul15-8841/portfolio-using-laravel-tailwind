@@ -4,7 +4,7 @@
 @section('content')
     <!-- services Section -->
     <section id="services" class="py-4 container mx-auto p-2">
-        <h2 class="text-4xl font-bold text-center">services</h2>
+        <h2 class="text-4xl font-bold text-center">Services</h2>
         <div class="mt-4">
             <!-- Tab Navigation -->
             <div class="flex justify-center space-x-4">
@@ -25,7 +25,7 @@
             <div id="service-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
                 @foreach($services as $service)
                     <div class="service bg-gray-800 p-6 rounded-lg shadow-lg" data-category="{{ $service->type }}">
-                        <img src="{{ asset('storage/' . $service->image) }}" alt="service Image" class="rounded-lg shadow-lg">
+                        <img src="{{ asset('storage/' . $service->image) }}" alt="service Image" class="rounded-lg shadow-lg w-full h-48 object-cover">
                         <h3 class="text-2xl font-bold">{{ $service->title }}</h3>
                         <h6 class="text-lg font-bold">{{ $service->stack }}</h6>
                         <p class="mt-2">{{ $service->description }}</p>
